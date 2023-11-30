@@ -2,9 +2,13 @@ import { useEffect, useRef, useState } from "react";
 import { findUserLocation, getWeatherData } from "./components/WeatherUtils";
 import InputSearch from "./components/InputSearch";
 import WeeklyForecast from "./components/WeeklyForecast";
+import AirCondition from "./components/AirCondition";
+import CurrentWeather from "./components/CurrentWeather";
+
 
 const WeatherLocApp = () => {
   const inputRef = useRef(null);
+  const dropdownMenuRef = useRef(null);
   const [location, setLocation] = useState({
     name: "",
     country: "",
@@ -43,42 +47,65 @@ const WeatherLocApp = () => {
   };
 
   useEffect(() => {
+    const handleOutsideClick = (event) => {
+      if (
+        dropdownMenuRef.current &&
+        !dropdownMenuRef.current.contains(event.target)
+      ) {
+        dropdownMenuRef.current.innerHTML = "";
+      }
+    };
+
+    document.addEventListener("mousedown", handleOutsideClick);
+
+    return () => {
+      document.removeEventListener("mousedown", handleOutsideClick);
+    };
+  }, []);
+
+  useEffect(() => {
     if (location.name != "") {
       getLocationWeather();
     }
   }, [location]);
 
   useEffect(() => {
-    console.log(locData);
+    console.log("refer", locData);
   }, [locData]);
 
   return (
-    <div>
-      WeatherLocApp
-      <InputSearch setLocation={setLocation} inputRef={inputRef} />
-      <button onClick={getUserLocation}>Navigate</button>
-      {location.name != "" ? 
-      <div>
-        Weather <br />
-        Location: {location.name}, {location.country} <br />
-        Description: {locData.description} <br />
-        Temperature: {Math.trunc(locData.temperature)}&deg;C <br />
-        Month: {locData.month} <br />
-        Date: {locData.date} <br />
-        Day: {locData.day} <br />
-        Real_Feel: {Math.trunc(locData.real_feel)}&deg;C <br />
-        Humidity: {locData.humidity} <br />
-        Clouds: {locData.clouds} <br />
-        Wind: {locData.wind} <br />
-        TodayForecast: {locData.todayForecast.length} <br />
-        {locData.todayForecast.map((item, index) => (
-          <div key={index}>
-            {item.dt_txt.slice(11, 16)}----{Math.trunc(item.main.temp - 273.15)}
-            &deg;C
+    <div className="weather-container">
+      <h1>WeatherLocApp</h1>
+      <div className="input-container">
+        <div className="input-top">
+          <InputSearch setLocation={setLocation} inputRef={inputRef} />
+          <button onClick={getUserLocation}>Navigate</button>
+        </div>
+      </div>
+      <div
+        className="dropdown-menu search-options"
+        id="dropdownMenu"
+        ref={dropdownMenuRef}
+      ></div>
+      {location.name != "" ? (
+        locData.temperature != "" ? (
+          <div className="weather-details">
+            <div className="weather-location">
+              Location: {location.name}, {location.country} <br />
+              Today {locData.date} {locData.month} <br />
+            </div>
+            <div className="todayForecast">
+              <CurrentWeather locData={locData} location={location} />
+              <AirCondition locData={locData} />
+            </div>
+            <WeeklyForecast locData={locData} location={location} />
           </div>
-        ))}
-        <WeeklyForecast locData={locData} location={location} />
-      </div>: <h1>Search the location</h1>}
+        ) : (
+          <h2>...Loading</h2>
+        )
+      ) : (
+        <h1>Search the location</h1>
+      )}
     </div>
   );
 };

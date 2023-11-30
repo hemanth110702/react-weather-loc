@@ -74,6 +74,7 @@ export const getWeatherData = async (name, country) => {
     dateInTime: w_data.dt,
     todayForecast: todayForecastData,
     weeklyForecast: weeklyForecastData,
+    weather: w_data.weather[0],
   };
 };
 

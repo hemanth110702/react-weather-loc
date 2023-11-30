@@ -27,15 +27,14 @@ const InputSearch = ({ setLocation, inputRef }) => {
 
   return (
     <div className="input-container">
-      <div className="dropdown">
+      <div>
         <input
           type="text"
-          className="dropdown-input"
+          className="dropdown-input input-box"
           placeholder="Type to search locations"
           onChange={handleInputSearch}
           ref={inputRef}
         />
-        <div className="dropdown-menu" id="dropdownMenu"></div>
       </div>
     </div>
   );

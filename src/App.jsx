@@ -1,12 +1,11 @@
-import WeatherApp from "./WeatherApp"
+import WeatherLocApp from "./WeatherLocApp";
 
 function App() {
-
   return (
     <>
-    <WeatherApp />
+      <WeatherLocApp />
     </>
-  )
+  );
 }
 
-export default App
+export default App;

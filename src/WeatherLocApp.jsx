@@ -5,7 +5,6 @@ import WeeklyForecast from "./components/WeeklyForecast";
 import AirCondition from "./components/AirCondition";
 import CurrentWeather from "./components/CurrentWeather";
 
-
 const WeatherLocApp = () => {
   const inputRef = useRef(null);
   const dropdownMenuRef = useRef(null);
@@ -34,9 +33,9 @@ const WeatherLocApp = () => {
   });
 
   const getUserLocation = async () => {
-    const userLocationData = await findUserLocation();
-    setLocation((prevData) => ({ ...prevData, ...userLocationData }));
-    inputRef.current.value = `${userLocationData.name}, ${userLocationData.country}`;
+      const userLocationData = await findUserLocation();
+      setLocation((prevData) => ({ ...prevData, ...userLocationData }));
+      inputRef.current.value = `${userLocationData.name}, ${userLocationData.country}`;
   };
 
   const getLocationWeather = async () => {
@@ -92,7 +91,8 @@ const WeatherLocApp = () => {
           <div className="weather-details">
             <div className="weather-location">
               Location: {location.name}, {location.country} <br />
-              Today {locData.date} {locData.month} <br />
+              Today {locData.date} {locData.month} 
+              <br />
             </div>
             <div className="todayForecast">
               <CurrentWeather locData={locData} location={location} />

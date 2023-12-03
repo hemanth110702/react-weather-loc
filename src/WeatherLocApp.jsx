@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { findUserLocation, getWeatherData } from "./components/WeatherUtils";
 import InputSearch from "./components/InputSearch";
 import WeeklyForecast from "./components/WeeklyForecast";
-import AirCondition from "./components/AirCondition";
+import TodayCondition from "./components/TodayCondition";
 import CurrentWeather from "./components/CurrentWeather";
 
 const WeatherLocApp = () => {
@@ -21,6 +21,7 @@ const WeatherLocApp = () => {
     dateInTime: 0,
     description: "",
     forecast: [],
+    found: true,
     name: "",
     month: "",
     monthIndex: "",
@@ -33,9 +34,10 @@ const WeatherLocApp = () => {
   });
 
   const getUserLocation = async () => {
-      const userLocationData = await findUserLocation();
-      setLocation((prevData) => ({ ...prevData, ...userLocationData }));
-      inputRef.current.value = `${userLocationData.name}, ${userLocationData.country}`;
+    setLocData((prevData) => ({ ...prevData, found: true }));
+    const userLocationData = await findUserLocation();
+    setLocation((prevData) => ({ ...prevData, ...userLocationData }));
+    inputRef.current.value = `${userLocationData.name}, ${userLocationData.country}`;
   };
 
   const getLocationWeather = async () => {
@@ -76,10 +78,10 @@ const WeatherLocApp = () => {
     <div className="weather-container">
       <h1>WeatherLocApp</h1>
       <div className="input-container">
-        <div className="input-top">
-          <InputSearch setLocation={setLocation} inputRef={inputRef} />
-          <button onClick={getUserLocation}>Navigate</button>
-        </div>
+        <InputSearch setLocation={setLocation} inputRef={inputRef} />
+        <button className="navigate-btn" onClick={getUserLocation}>
+          Navigate
+        </button>
       </div>
       <div
         className="dropdown-menu search-options"
@@ -87,24 +89,34 @@ const WeatherLocApp = () => {
         ref={dropdownMenuRef}
       ></div>
       {location.name != "" ? (
-        locData.temperature != "" ? (
-          <div className="weather-details">
-            <div className="weather-location">
-              Location: {location.name}, {location.country} <br />
-              Today {locData.date} {locData.month} 
-              <br />
-            </div>
-            <div className="todayForecast">
+        locData.temperature != "" && locData.found ? (
+          <div className="weather-panel">
+            <div className="current-weather-container">
               <CurrentWeather locData={locData} location={location} />
-              <AirCondition locData={locData} />
+              <TodayCondition locData={locData} />
             </div>
             <WeeklyForecast locData={locData} location={location} />
           </div>
+        ) : !locData.found ? (
+          <div></div>
         ) : (
           <h2>...Loading</h2>
         )
       ) : (
-        <h1>Search the location</h1>
+        <div className="no-search-display">
+          <h1>Search the location</h1>
+          <h1>OR</h1>
+          <h1>Click on navigate</h1>
+          <img src="images/location.png" alt="" />
+        </div>
+      )}
+      {locData.found ? (
+        <div></div>
+      ) : (
+        <div>
+          <h2>Location Data Not Found</h2>
+          <img src="images/no-data.png" alt="" />
+        </div>
       )}
     </div>
   );

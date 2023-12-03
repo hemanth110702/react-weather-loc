@@ -1,6 +1,6 @@
 import { getNextDays } from "./WeatherUtils";
 
-const WeeklyForecast = ({ locData, location }) => {
+const WeeklyForecast = ({ locData }) => {
   let today, newDays;
 
   if (locData.day != "") {
@@ -9,14 +9,22 @@ const WeeklyForecast = ({ locData, location }) => {
   }
 
   return (
-    <div>
-      WeeklyForecast: {locData.weeklyForecast.length} <br />
-      {locData.weeklyForecast.map((item, index) => {
-        return <div key={index}>
-          <div>{newDays[index]}</div>
-          <div>{Math.trunc(item.main.temp - 273.15)}&deg;C</div>
-        </div>;
-      })}
+    <div className="weekly-forecast-container">
+      <h2>Weekly Forecast</h2>
+      <div className="weekly-forecast-items">
+        {locData.weeklyForecast.map((item, index) => {
+          return (
+            <div className="weekly-forecast-item" key={index}>
+              <div>{newDays[index].slice(0, 10)}</div>
+              <img
+                src={`http://openweathermap.org/img/w/${item.weather[0].icon}.png`}
+                alt=""
+              />
+              <div>{Math.trunc(item.main.temp - 273.15)}&deg;C</div>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 };

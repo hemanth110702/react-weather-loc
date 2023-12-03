@@ -11,7 +11,6 @@ const InputSearch = ({ setLocation, inputRef }) => {
       console.log(searchData);
       dropdownMenu.innerHTML = "";
       if (searchData.length === 0) {
-        // If no data, create a dropdown item indicating no data
         const noDataItem = document.createElement("div");
         noDataItem.classList.add("dropdown-item");
         noDataItem.textContent = "No data available";
@@ -37,8 +36,7 @@ const InputSearch = ({ setLocation, inputRef }) => {
   };
 
   return (
-    <div className="input-container">
-      <div>
+      <>
         <input
           type="text"
           className="dropdown-input input-box"
@@ -46,8 +44,7 @@ const InputSearch = ({ setLocation, inputRef }) => {
           onChange={handleInputSearch}
           ref={inputRef}
         />
-      </div>
-    </div>
+      </>
   );
 };
 

@@ -42,40 +42,53 @@ export const findUserLocation = () => {
 };
 
 export const getWeatherData = async (name, country) => {
-  const w_url = `https://api.openweathermap.org/data/2.5/weather?q=${name},${country}&appid=4cb69279ed43fd0729031826cae5c55c`;
-  const f_url = `https://api.openweathermap.org/data/2.5/forecast?q=${name},${country}&appid=4cb69279ed43fd0729031826cae5c55c`;
 
-  const w_response = await fetch(w_url);
-  const w_data = await w_response.json();
-  const f_response = await fetch(f_url);
-  const f_data = await f_response.json();
+  try {
+    const w_url = `https://api.openweathermap.org/data/2.5/weather?q=${name},${country}&appid=4cb69279ed43fd0729031826cae5c55c`;
+    const f_url = `https://api.openweathermap.org/data/2.5/forecast?q=${name},${country}&appid=4cb69279ed43fd0729031826cae5c55c`;
+  
+    const w_response = await fetch(w_url);
+    const w_data = await w_response.json();
+    const f_response = await fetch(f_url);
+    const f_data = await f_response.json();
+  
+    const date = new Date(w_data.dt * 1000);
+    const dt = date.getDate();
+    const day = date.getDay();
+    const month = date.getMonth();
+  
+    const todayForecastData = getTodayForecast(f_data, dt, month + 1);
+    const weeklyForecastData = getWeeklyForecast(f_data, w_data.dt);
+  
+    console.log(w_data);
 
-  const date = new Date(w_data.dt * 1000);
-  const dt = date.getDate();
-  const day = date.getDay();
-  const month = date.getMonth();
+    return {
+      description: w_data.weather[0].description,
+      temperature: w_data.main.temp - 273.15,
+      month: months[month],
+      monthIndex: month + 1,
+      date: dt,
+      day: days[day],
+      dateInTime: w_data.dt,
+      real_feel: w_data.main.feels_like - 273.15,
+      humidity: w_data.main.humidity,
+      clouds: w_data.clouds.all,
+      wind: w_data.wind.speed,
+      forecast: f_data.list,
+      found: true,
+      dateInTime: w_data.dt,
+      todayForecast: todayForecastData,
+      weeklyForecast: weeklyForecastData,
+      weather: w_data.weather[0],
+    };
+    
+  } catch(err) {
+    console.log("no location", err);
+    return {found: false}
+  }
 
-  const todayForecastData = getTodayForecast(f_data, dt, month + 1);
-  const weeklyForecastData = getWeeklyForecast(f_data, w_data.dt);
 
-  return {
-    description: w_data.weather[0].description,
-    temperature: w_data.main.temp - 273.15,
-    month: months[month],
-    monthIndex: month + 1,
-    date: dt,
-    day: days[day],
-    dateInTime: w_data.dt,
-    real_feel: w_data.main.feels_like - 273.15,
-    humidity: w_data.main.humidity,
-    clouds: w_data.clouds.all,
-    wind: w_data.wind.speed,
-    forecast: f_data.list,
-    dateInTime: w_data.dt,
-    todayForecast: todayForecastData,
-    weeklyForecast: weeklyForecastData,
-    weather: w_data.weather[0],
-  };
+  
 };
 
 const getTodayForecast = (f_data, date, monthIndex) => {

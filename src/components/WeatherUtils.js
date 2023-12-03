@@ -23,7 +23,7 @@ export const findUserLocation = () => {
           const { latitude, longitude } = position.coords;
           try {
             const nav_response = await fetch(
-              `http://api.openweathermap.org/geo/1.0/reverse?lat=${latitude}&lon=${longitude}&limit=5&appid=4cb69279ed43fd0729031826cae5c55c`
+              `https://api.openweathermap.org/geo/1.0/reverse?lat=${latitude}&lon=${longitude}&limit=5&appid=4cb69279ed43fd0729031826cae5c55c`
             );
             const nav_Data = await nav_response.json();
             const pl_name = nav_Data[0].name.split("(")[0].trim();

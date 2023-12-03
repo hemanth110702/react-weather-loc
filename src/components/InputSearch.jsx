@@ -5,7 +5,7 @@ const InputSearch = ({ setLocation, inputRef }) => {
     }
     if (e.target.value != "") {
       const search_response = await fetch(
-        `http://api.openweathermap.org/geo/1.0/direct?q=${e.target.value}&limit=5&appid=4cb69279ed43fd0729031826cae5c55c`
+        `https://api.openweathermap.org/geo/1.0/direct?q=${e.target.value}&limit=5&appid=4cb69279ed43fd0729031826cae5c55c`
       );
       const searchData = await search_response.json();
       console.log(searchData);

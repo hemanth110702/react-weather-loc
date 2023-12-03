@@ -42,25 +42,22 @@ export const findUserLocation = () => {
 };
 
 export const getWeatherData = async (name, country) => {
-
   try {
     const w_url = `https://api.openweathermap.org/data/2.5/weather?q=${name},${country}&appid=4cb69279ed43fd0729031826cae5c55c`;
     const f_url = `https://api.openweathermap.org/data/2.5/forecast?q=${name},${country}&appid=4cb69279ed43fd0729031826cae5c55c`;
-  
+
     const w_response = await fetch(w_url);
     const w_data = await w_response.json();
     const f_response = await fetch(f_url);
     const f_data = await f_response.json();
-  
+
     const date = new Date(w_data.dt * 1000);
     const dt = date.getDate();
     const day = date.getDay();
     const month = date.getMonth();
-  
+
     const todayForecastData = getTodayForecast(f_data, dt, month + 1);
     const weeklyForecastData = getWeeklyForecast(f_data, w_data.dt);
-  
-    console.log(w_data);
 
     return {
       description: w_data.weather[0].description,
@@ -81,20 +78,16 @@ export const getWeatherData = async (name, country) => {
       weeklyForecast: weeklyForecastData,
       weather: w_data.weather[0],
     };
-    
-  } catch(err) {
+  } catch (err) {
     console.log("no location", err);
-    return {found: false}
+    return { found: false };
   }
-
-
-  
 };
 
 const getTodayForecast = (f_data, date, monthIndex) => {
   const tf = f_data.list.filter(
     (item) =>
-      date=== +item.dt_txt.slice(8, 10) &&
+      date === +item.dt_txt.slice(8, 10) &&
       monthIndex === +item.dt_txt.slice(5, 7)
   );
   return tf;
@@ -113,12 +106,12 @@ const getWeeklyForecast = (f_data, dateInTime) => {
   return wf;
 };
 
-export const getNextDays = (today)=> {
+export const getNextDays = (today) => {
   const nextDays = [];
-    for (let i = 0; i < 7; i++) {
-      const nextDay = new Date(today);
-      nextDay.setDate(today.getDate() + i);
-      nextDays.push(nextDay.toDateString());
-    }
-    return nextDays;
-}
+  for (let i = 0; i < 7; i++) {
+    const nextDay = new Date(today);
+    nextDay.setDate(today.getDate() + i);
+    nextDays.push(nextDay.toDateString());
+  }
+  return nextDays;
+};

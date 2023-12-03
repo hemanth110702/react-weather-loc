@@ -17,8 +17,8 @@ const WeeklyForecast = ({ locData }) => {
             <div className="weekly-forecast-item" key={index}>
               <div>{newDays[index].slice(0, 10)}</div>
               <img
-                src={`http://openweathermap.org/img/w/${item.weather[0].icon}.png`}
-                alt=""
+                src={`https://openweathermap.org/img/w/${item.weather[0].icon}.png`}
+                alt="weekly weather forecast image"
               />
               <div>{Math.trunc(item.main.temp - 273.15)}&deg;C</div>
             </div>

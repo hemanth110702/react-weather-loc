@@ -11,8 +11,8 @@ const TodayCondition = ({ locData }) => {
               <div>{item.dt_txt.slice(11, 16)}</div>
               <div>
                 <img
-                  src={`http://openweathermap.org/img/w/${item.weather[0].icon}.png`}
-                  alt=""
+                  src={`https://openweathermap.org/img/w/${item.weather[0].icon}.png`}
+                  alt="today's weather image"
                 />
               </div>
               <div>{Math.trunc(item.main.temp - 273.15)}&deg;C</div>

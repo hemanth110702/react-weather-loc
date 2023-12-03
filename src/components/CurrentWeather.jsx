@@ -4,7 +4,7 @@ const CurrentWeather = ({ location, locData }) => {
       <div className="display-weather">
         <div className="display-weather-image">
           <img
-            src={`http://openweathermap.org/img/w/${locData.weather.icon}.png`}
+            src={`https://openweathermap.org/img/w/${locData.weather.icon}.png`}
             alt="current temperature image"
           />
           <div className="display-weather-temp">

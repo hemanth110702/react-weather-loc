@@ -70,10 +70,6 @@ const WeatherLocApp = () => {
     }
   }, [location]);
 
-  /*   useEffect(() => {
-    console.log("refer", locData);
-  }, [locData]); */
-
   return (
     <div className="weather-container">
       <h1>WeatherLocApp</h1>

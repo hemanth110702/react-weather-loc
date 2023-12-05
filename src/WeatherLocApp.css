@@ -1,5 +1,5 @@
 body {
-  background-image: radial-gradient(circle, #002053, rgb(6, 0, 33));
+  background-image: radial-gradient(circle, #0042ab, rgb(0, 47, 69));
   min-height: 100vh;
   background-repeat: no-repeat;
   display: flex;
@@ -49,9 +49,8 @@ h1 {
 }
 
 .no-search-display > h1 {
+  color: white;
   font-size: 2rem;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
 }
 
 .no-search-display > img {
@@ -74,7 +73,7 @@ h1 {
 .search-options {
   position: absolute;
   top: 150px;
-  left: 115px;
+  left: 105px;
   width: 71%;
   border-radius: 0.2rem;
   background-color: white;
@@ -88,14 +87,15 @@ h1 {
 
 .navigate-btn {
   cursor: pointer;
+  font-family: "Kanit", sans-serif;
   border: 1px solid black;
   border-radius: 3px;
-  transition: background-color 0.15s, color 0.15s;
+  transition: color 0.15s;
+  font-size: 1.2rem;
 }
 
 .navigate-btn:hover {
-  background-color: #35445c;
-  color: wheat;
+  color: rgb(0, 73, 109);
 }
 
 /* --------------------------------------------------------------- */
@@ -176,11 +176,12 @@ h1 {
 }
 
 .today-forecast-item {
-  background: rgba(255, 255, 255, 0.38);
+  background: rgba(255, 255, 255, 0.28);
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(0.3px);
-  -webkit-backdrop-filter: blur(0.3px);
+  backdrop-filter: blur(1.6px);
+  -webkit-backdrop-filter: blur(1.6px);
+  border: 0px solid rgba(255, 255, 255, 1);
   padding: 5px;
 }
 
@@ -245,12 +246,22 @@ h1 {
 }
 
 .weekly-forecast-item {
-  background: rgba(255, 255, 255, 0.38);
+  background: rgba(255, 255, 255, 0.28);
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(0.3px);
-  -webkit-backdrop-filter: blur(0.3px);
+  backdrop-filter: blur(1.6px);
+  -webkit-backdrop-filter: blur(1.6px);
+  border: 0px solid rgba(255, 255, 255, 1);
   margin: 1rem;
+}
+
+.selected {
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(1.6px);
+  -webkit-backdrop-filter: blur(1.6px);
+  border: 1px solid rgba(255, 255, 255, 1);
 }
 
 /* ----------------------------------------------------------------------- */
@@ -262,7 +273,7 @@ h1 {
   }
 
   .search-options {
-    left: 20px;
+    left: 10px;
     width: 86%;
   }
 
@@ -297,7 +308,7 @@ h1 {
   }
 
   .search-options {
-    left: 45px;
+    left: 35px;
     width: 520px;
   }
 
@@ -363,8 +374,8 @@ h1 {
   }
 
   .search-options {
-    left: 25px;
-    width: 220px;
+    left: 15px;
+    width: 215px;
   }
 
   .display-weather {
@@ -444,7 +455,7 @@ h1 {
 
   .search-options {
     left: 4px;
-    top: 7.5%;
+    top: 8%;
     width: 210px;
   }
 

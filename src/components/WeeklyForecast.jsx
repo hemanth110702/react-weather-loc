@@ -14,7 +14,14 @@ const WeeklyForecast = ({ locData }) => {
       <div className="weekly-forecast-items">
         {locData.weeklyForecast.map((item, index) => {
           return (
-            <div className="weekly-forecast-item" key={index}>
+            <div
+              className={
+                index === 0
+                  ? "weekly-forecast-item selected"
+                  : "weekly-forecast-item"
+              }
+              key={index}
+            >
               <div>{newDays[index].slice(0, 10)}</div>
               <img
                 src={`https://openweathermap.org/img/w/${item.weather[0].icon}.png`}

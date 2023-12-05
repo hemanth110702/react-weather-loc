@@ -74,7 +74,7 @@ const WeatherLocApp = () => {
     <div className="weather-container">
       <h1>WeatherLocApp</h1>
       <div className="input-container">
-        <InputSearch setLocation={setLocation} inputRef={inputRef} />
+        <InputSearch setLocation={setLocation} inputRef={inputRef} locData={locData} setLocData={setLocData}/>
         <button className="navigate-btn" onClick={getUserLocation}>
           Navigate
         </button>

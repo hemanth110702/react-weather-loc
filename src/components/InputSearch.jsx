@@ -1,4 +1,4 @@
-const InputSearch = ({ setLocation, inputRef }) => {
+const InputSearch = ({ setLocation, inputRef, setLocData }) => {
   const handleInputSearch = async (e) => {
     if (e.target.value === "") {
       dropdownMenu.innerHTML = "";
@@ -27,6 +27,7 @@ const InputSearch = ({ setLocation, inputRef }) => {
             e.target.value = `${loc.name}, ${loc.country}`;
             dropdownMenu.innerHTML = "";
             const searchLoc = { name: loc.name, country: loc.country };
+            setLocData((prevData)=> ({...prevData, temperature: "", found: true}))
             setLocation((prevLoc) => ({ ...prevLoc, ...searchLoc }));
           });
           dropdownMenu.appendChild(dropDownItem);

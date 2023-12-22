@@ -53,10 +53,10 @@ Welcome to the React Weather App! This application provides real-time weather in
     </tr>
     <tr>
         <td>
-            <img src="https://github.com/hemanth110702/react-weather-loc/assets/89832451/53241d63-bbce-4add-a8bd-4fa4456aaec4" width="100%" title="Desktop view - Home"/>
+            <img src="https://github.com/hemanth110702/react-weather-loc/assets/89832451/53241d63-bbce-4add-a8bd-4fa4456aaec4" width="100%" title="Desktop view - loc-temp"/>
         </td>
         <td>
-            <img src="https://github.com/hemanth110702/react-weather-loc/assets/89832451/1bc5fb49-b856-4f06-9a3a-14ad8d9031b0" width="100%" title="Mobile view - Home"/>
+            <img src="https://github.com/hemanth110702/react-weather-loc/assets/89832451/1bc5fb49-b856-4f06-9a3a-14ad8d9031b0" width="100%" title="Mobile view - loc-temp"/>
         </td>
     </tr>
     <tr>
@@ -64,10 +64,10 @@ Welcome to the React Weather App! This application provides real-time weather in
     </tr>
     <tr>
         <td>
-            <img src="https://github.com/hemanth110702/react-weather-loc/assets/89832451/53241d63-bbce-4add-a8bd-4fa4456aaec4" width="100%" title="Desktop view - Home"/>
+            <img src="https://github.com/hemanth110702/react-weather-loc/assets/89832451/53241d63-bbce-4add-a8bd-4fa4456aaec4" width="100%" title="Desktop view - forecast-today"/>
         </td>
         <td>
-            <img src="https://github.com/hemanth110702/react-weather-loc/assets/89832451/3d5da4f8-baa8-4b53-aa51-2ec90599be34" width="100%" title="Mobile view - Home"/>
+            <img src="https://github.com/hemanth110702/react-weather-loc/assets/89832451/3d5da4f8-baa8-4b53-aa51-2ec90599be34" width="100%" title="Mobile view - forecast-today"/>
         </td>
     </tr>
     <tr>
@@ -75,10 +75,10 @@ Welcome to the React Weather App! This application provides real-time weather in
     </tr>
     <tr>
         <td>
-            <img src="https://github.com/hemanth110702/react-weather-loc/assets/89832451/53241d63-bbce-4add-a8bd-4fa4456aaec4" width="100%" title="Desktop view - Home"/>
+            <img src="https://github.com/hemanth110702/react-weather-loc/assets/89832451/53241d63-bbce-4add-a8bd-4fa4456aaec4" width="100%" title="Desktop view - forecast-weekly"/>
         </td>
         <td>
-            <img src="https://github.com/hemanth110702/react-weather-loc/assets/89832451/d25040d4-1c74-4a4e-a87e-9735813884b8" width="100%" title="Mobile view - Home"/>
+            <img src="https://github.com/hemanth110702/react-weather-loc/assets/89832451/d25040d4-1c74-4a4e-a87e-9735813884b8" width="100%" title="Mobile view - forecast-weekly"/>
         </td>
     </tr>
 </table>

@@ -19,8 +19,8 @@ Welcome to the React Weather App! This application provides real-time weather in
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/react-weather-app.git
-   cd react-weather-app
+   git clone https://github.com/hemanth110702/react-weather-loc.git
+   cd react-weather-loc
 
 2. Install dependencies:
    ```bash 

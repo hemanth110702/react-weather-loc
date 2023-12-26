@@ -1,15 +1,24 @@
+<div id="top"></div>
+
 # React Weather Loc App
+
+<details>
+<summary>Table of contents</summary>
+
+-   [Overview](#overview)
+-   [Technology Stack](#technology-stack)
+-   [Getting Started](#getting-started)
+-   [Features](#features)
+-   [Screenshots](#screenshots)
+-   [Link](#link)
+
+</details>
+
+## Overview
 
 Welcome to the React Weather App! This application provides real-time weather information using data from the OpenWeather API. Users can search for specific locations or allow the app to access their current location.
 
-## Features
-
-- **Real-Time Weather Data:** Fetches and displays up-to-date weather information.
-- **Search Functionality:** Users can search for weather conditions in specific locations.
-- **Location-Based Weather:** Utilizes geolocation to automatically fetch weather data for the user's current location.
-- **Responsive Design:** Ensures a consistent and user-friendly experience across devices.
-
-## Technologies Used
+## Technology Stack
 
 - React
 - CSS for styling
@@ -30,7 +39,14 @@ Welcome to the React Weather App! This application provides real-time weather in
    ```bash
    npm run dev
 
-## Screenshot
+## Features
+
+- **Real-Time Weather Data:** Fetches and displays up-to-date weather information.
+- **Search Functionality:** Users can search for weather conditions in specific locations.
+- **Location-Based Weather:** Utilizes geolocation to automatically fetch weather data for the user's current location.
+- **Responsive Design:** Ensures a consistent and user-friendly experience across devices.
+
+## Screenshots
 
 <table>
     <tr>
@@ -83,4 +99,7 @@ Welcome to the React Weather App! This application provides real-time weather in
     </tr>
 </table>
 
-## [LIVE SITE](https://react-weather-loc.netlify.app/)
+## Link
+[🚀 Live Page](https://react-weather-loc.netlify.app/)
+
+<p align="right"><a href="#top">⬆️ Back to Top</a></p>

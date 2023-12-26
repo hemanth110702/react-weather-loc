@@ -102,4 +102,4 @@ Welcome to the React Weather App! This application provides real-time weather in
 ## Link
 [🚀 Live Page](https://react-weather-loc.netlify.app/)
 
-<p align="right" style="color:red;"><a href="#top">⬆️ Back to Top</a></p>
+<p align="right"><a href="#top">⬆️ Back to Top</a></p>

@@ -30,14 +30,17 @@ Welcome to the React Weather App! This application provides real-time weather in
    ```bash
    git clone https://github.com/hemanth110702/react-weather-loc.git
    cd react-weather-loc
+   ```
 
 2. Install dependencies:
    ```bash 
    npm install
+   ```
 
 3. Start the development server:
    ```bash
    npm run dev
+   ```
 
 ## Features
 
